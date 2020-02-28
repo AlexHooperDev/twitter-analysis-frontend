@@ -4,6 +4,8 @@ import './App.css';
 
 import { UserTweet } from './components/UserTweet';
 import { SentimentDoughnut } from './containers/SentimentDoughnut';
+import { Header } from './containers/Header';
+import { Overview } from './containers/Overview';
 
 function App() {
 
@@ -69,11 +71,10 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={(e) => handleSubmit(e, username)}>
-        <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-      </form>
+      <Header handleSubmit ={handleSubmit} username={username} setUsername={setUsername} />
       {/* {tweets !== null ? tweets.map(tweet => <UserTweet tweet={tweet.tweet} sentiment={tweet.sentiment} />) : () => { }} */}
-      {tweets !== null ? <SentimentDoughnut tweetArray={data} /> : () => { }}
+      {/* {tweets !== null ? <SentimentDoughnut tweetArray={data} /> : () => { }} */}
+      <Overview user={'alexhooperdev'} name={'Alex Hooper'} userSince={'Sep 01 2011'} followCount={'83'} />
     </div>
   );
 }
