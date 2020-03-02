@@ -2,21 +2,19 @@ import styled from 'styled-components';
 
 export const OverviewWrapper = styled.section`
   display: flex;
+  padding: 0 0 40px;
+  border-bottom: 1px solid #475179;
+  height: fit-content;
   justify-content: center;
-  padding: 25px;
-  border-top: 4px solid #289bb1;
-  width: 90%;
-  margin: 50px auto 0;
-  background: #2d3965;
-  border-radius: 5px;
-  box-shadow: 0 2.8px 2.8px rgba(0, 0, 0, 0.022), 0 6.7px 6.7px rgba(0, 0, 0, 0.032), 0 12.5px 12.6px rgba(0, 0, 0, 0.04), 0 22.3px 22.6px rgba(0, 0, 0, 0.048), 0 41.8px 42.2px rgba(0, 0, 0, 0.058), 0 100px 101px rgba(0, 0, 0, 0.08);
 `;
 
 export const Avatar = styled.img`
   border-radius: 100%;
   max-width: 150px;
   max-height: 150px;
-  border: 3px solid #1a2243;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #1a2243;
 `;
 
 export const ProfileDetails = styled.div`
@@ -27,12 +25,12 @@ export const ProfileDetails = styled.div`
 
 export const Header = styled.h2`
   color: #f7f7f7;
-  margin: 0;
+  margin: 0 0 7px;
 `;
 
 export const Fullname = styled.p`
   color: #f7f7f78a;
-  margin: 0 0 5px;
+  margin: 0 0 15px;
   font-size: 15px;
   letter-spacing: 0.5px;
 `;
@@ -43,6 +41,25 @@ export const Joined = styled.p`
 `;
 
 export const Followers = styled.p`
-  color: #f7f7f7;
+  color: #f7f7f78a;
   margin: 0;
+
+  & :nth-child(2) {
+    margin-left: 25px;
+  }
+
+`;
+
+export const Bio = styled.p`
+  color: #d3d4da;
+  font-size: 14px;
+  margin: 18px 0 0;
+`;
+
+export const Number = styled.span`
+margin-right: 3px;
+font-size: 18px;
+font-weight: 700;
+color: #f7f7f7;
+
 `;
