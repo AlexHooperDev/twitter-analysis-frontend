@@ -6,15 +6,23 @@ import { UserTweet } from './components/UserTweet';
 import { SentimentDoughnut } from './containers/SentimentDoughnut';
 import { Header } from './containers/Header';
 import { Overview } from './containers/Overview';
+import { PosNegTweets } from './components/PosNegTweets';
+import { MostLikedTweet } from './containers/MostLikedTweet';
+import { UserWrapper } from './components/UserWrapper';
+
+import { TwoColRow } from './styled';
 
 function App() {
 
   const [username, setUsername] = useState('');
+  const [userData, setUserData] = useState('');
   const [tweets, setTweets] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [tweetSentiments, setTweetSentiments] = useState({ positive: 0, neutral: 0, negative: 0, });
 
   const handleSubmit = async (e, username) => {
+    setLoading(true);
     e.preventDefault();
     // Send username to backend
     fetch('http://localhost:4000/user', {
@@ -25,8 +33,8 @@ function App() {
       body: JSON.stringify({ user: username }),
     })
       .then(res => res.json())
-      .then(json => setTweets(json))
-      .then(setDataLoaded(true));
+      .then(json => { setTweets(json); setUserData(json.user); })
+      .then(() => setLoading(false), setDataLoaded(true));
   };
 
   const collateSentiments = (tweetArray) => {
@@ -40,7 +48,6 @@ function App() {
           setTweetSentiments({ ...tweetSentiments, neutral: tweetSentiments.neutral++ });
           break;
         case "NEGATIVE":
-          console.log(tweet);
           setTweetSentiments({ ...tweetSentiments, negative: tweetSentiments.negative++ });
           break;
         default:
@@ -52,9 +59,8 @@ function App() {
   const data = {
     datasets: [{
       data: [tweetSentiments.positive, tweetSentiments.neutral, tweetSentiments.negative],
-      backgroundColor: 'orange',
-      borderWidth: 2,
-      borderColor: 'grey',
+      backgroundColor: ['#289BB1', '#9DA0E3', '#BA5B94'],
+      borderWidth: 0,
     }],
     labels: [
       'Positive',
@@ -65,16 +71,23 @@ function App() {
 
   useEffect(() => {
     if (tweets !== null) {
-      collateSentiments(tweets);
+      collateSentiments(tweets.tweets);
     }
   }, [tweets]);
 
   return (
     <div className="App">
-      <Header handleSubmit ={handleSubmit} username={username} setUsername={setUsername} />
-      {/* {tweets !== null ? tweets.map(tweet => <UserTweet tweet={tweet.tweet} sentiment={tweet.sentiment} />) : () => { }} */}
-      {/* {tweets !== null ? <SentimentDoughnut tweetArray={data} /> : () => { }} */}
-      <Overview user={'alexhooperdev'} name={'Alex Hooper'} userSince={'Sep 01 2011'} followCount={'83'} />
+      <Header handleSubmit={handleSubmit} username={username} setUsername={setUsername} loading={loading} />
+      {tweets &&
+        <UserWrapper loaded={dataLoaded}>
+          <Overview user={userData.handle} name={userData.name} avatar={userData.avatar} followCount={userData.followers} friendCount={userData.following} bio={userData.bio} />
+          <TwoColRow>
+            <SentimentDoughnut tweetArray={data} />
+            {/* <PosNegTweets /> */}
+            <MostLikedTweet tweet={tweets.stats.mostLikedTweet} />
+          </TwoColRow>
+        </UserWrapper>
+      }
     </div>
   );
 }
