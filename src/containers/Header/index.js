@@ -5,12 +5,12 @@ import Logo from '../../assets/twitter.svg';
 import { HeaderWrapper, TwitterLogo, Text } from './styled';
 import { InputForm } from '../../components/InputForm';
 
-export const Header = ({ handleSubmit, username, setUsername }) => {
+export const Header = ({ handleSubmit, username, setUsername, loading }) => {
   return (
     <HeaderWrapper>
       <TwitterLogo src={Logo} />
       <Text>Twitter User Analysis</Text>
-      <InputForm handleSubmit={handleSubmit} username={username} setUsername={setUsername} />
+      <InputForm handleSubmit={handleSubmit} username={username} setUsername={setUsername} loading={loading} />
     </HeaderWrapper>
   );
 };
