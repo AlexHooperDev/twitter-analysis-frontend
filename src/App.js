@@ -11,6 +11,9 @@ import { MostLikedTweet } from './containers/MostLikedTweet';
 import { UserWrapper } from './components/UserWrapper';
 
 import { TwoColRow } from './styled';
+import { MostRetweetedTweet } from './containers/MostRetweetedTweet';
+import { MostPositiveTweet } from './containers/MostPositiveTweet';
+import { MostNegativeTweet } from './containers/MostNegativeTweet';
 
 function App() {
 
@@ -82,9 +85,16 @@ function App() {
         <UserWrapper loaded={dataLoaded}>
           <Overview user={userData.handle} name={userData.name} avatar={userData.avatar} followCount={userData.followers} friendCount={userData.following} bio={userData.bio} />
           <TwoColRow>
-            <SentimentDoughnut tweetArray={data} />
+            <SentimentDoughnut tweetArray={ data } />
             {/* <PosNegTweets /> */}
-            <MostLikedTweet tweet={tweets.stats.mostLikedTweet} />
+          </TwoColRow>
+          <TwoColRow>
+            <MostPositiveTweet tweet={tweets.stats.mostPositiveTweet} />
+            <MostNegativeTweet tweet={tweets.stats.mostNegativeTweet} />
+          </TwoColRow>
+          <TwoColRow>
+            <MostLikedTweet tweet={ tweets.stats.mostLikedTweet } />
+            <MostRetweetedTweet tweet={ tweets.stats.mostRetweetedTweet }/>
           </TwoColRow>
         </UserWrapper>
       }
