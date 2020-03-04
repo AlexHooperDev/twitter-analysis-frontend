@@ -10,10 +10,11 @@ import { PosNegTweets } from './components/PosNegTweets';
 import { MostLikedTweet } from './containers/MostLikedTweet';
 import { UserWrapper } from './components/UserWrapper';
 
-import { TwoColRow } from './styled';
+import { OneColRow, TwoColRow } from './styled';
 import { MostRetweetedTweet } from './containers/MostRetweetedTweet';
 import { MostPositiveTweet } from './containers/MostPositiveTweet';
 import { MostNegativeTweet } from './containers/MostNegativeTweet';
+import { MostUsedWords } from './containers/MostUsedWords';
 
 function App() {
 
@@ -96,6 +97,9 @@ function App() {
             <MostLikedTweet tweet={ tweets.stats.mostLikedTweet } />
             <MostRetweetedTweet tweet={ tweets.stats.mostRetweetedTweet }/>
           </TwoColRow>
+          <OneColRow>
+            <MostUsedWords words={ tweets.stats.mostUsedWords } />
+          </OneColRow>
         </UserWrapper>
       }
     </div>

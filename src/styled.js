@@ -21,3 +21,9 @@ export const TwoColRow = styled.section`
   padding: 30px 0;
   border-bottom: 1px solid #475179;
 `;
+
+export const OneColRow = styled.section`
+  display: flex;
+  padding: 30px 0;
+  border-bottom: 1px solid #475179;
+`;
