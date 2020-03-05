@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-flow: column;
   flex-basis: 23%;
   margin-right: 25px;
+  justify-content: center;
 `;
 
 export const NegativeIcon = styled.img`
