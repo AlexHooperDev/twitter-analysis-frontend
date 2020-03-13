@@ -22,6 +22,7 @@ function App() {
   const [userData, setUserData] = useState('');
   const [tweets, setTweets] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [tweetSentiments, setTweetSentiments] = useState({ positive: 0, neutral: 0, negative: 0, });
 
@@ -36,6 +37,13 @@ function App() {
       },
       body: JSON.stringify({ user: username }),
     })
+      .then(res => {
+        if (res.status === 200) {
+          return res
+        } else {
+          setFetchError(true);
+        }
+      })
       .then(res => res.json())
       .then(json => { setTweets(json); setUserData(json.user); })
       .then(() => setLoading(false), setDataLoaded(true));
