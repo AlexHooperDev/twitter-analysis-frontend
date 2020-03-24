@@ -6,6 +6,12 @@ export const OverviewWrapper = styled.section`
   border-bottom: 1px solid #475179;
   height: fit-content;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-flow: column;
+    align-items: center
+  }
+
 `;
 
 export const Avatar = styled.img`
@@ -20,6 +26,11 @@ export const Avatar = styled.img`
 export const ProfileDetails = styled.div`
   text-align: left;
   margin-left: 30px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin: 15px 0;
+  }
 
 `;
 

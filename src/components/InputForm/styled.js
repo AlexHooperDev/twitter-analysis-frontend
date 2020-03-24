@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   margin: 0 auto;
-  max-width: 80%;
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
   justify-content: center;
   align-items: stretch;
   border-radius: 4px;
@@ -27,6 +27,11 @@ font-weight: 500;
 color: #f7f7f7;
 padding: 9px 16px;
 width: 80%;
+
+  @media (max-width: 768px) {
+    width: 60%;
+  }
+
 `;
 
 export const Button = styled.button`
@@ -38,6 +43,12 @@ export const Button = styled.button`
   font-weight: 600;
   letter-spacing: 0.5px;
   cursor: pointer;
+  transition: background-color 0.4s;
+
+  @media (max-width: 768px) {
+    width: 30%;
+  }
+
 `;
 
 export const At = styled.span`
@@ -46,4 +57,22 @@ export const At = styled.span`
   padding: 10px 0;
   font-weight: 900;
   color: #f7f7f7;
+
+  @media (max-width: 768px) {
+    width: 10%;
+  }
+
+`;
+
+export const FormError = styled.div`
+  max-width: 700px;
+  margin: 0 auto;
+  background: #d24141cc;
+  color: #f7f7f7;
+  padding: 10px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-top: -5px;
+  border-radius: 4px;
+  font-weight: 500;
 `;

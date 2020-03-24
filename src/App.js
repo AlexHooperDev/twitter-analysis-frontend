@@ -30,7 +30,7 @@ function App() {
     setLoading(true);
     e.preventDefault();
     // Send username to backend
-    fetch('http://localhost:4000/user', {
+    fetch('http://192.168.0.13:4000/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,12 +41,16 @@ function App() {
         if (res.status === 200) {
           return res
         } else {
-          setFetchError(true);
+          throw new Error();
         }
       })
       .then(res => res.json())
       .then(json => { setTweets(json); setUserData(json.user); })
-      .then(() => setLoading(false), setDataLoaded(true));
+      .then(() => setLoading(false), setDataLoaded(true), setFetchError(false))
+      .catch(() => {
+        setFetchError(true);
+        setLoading(false);
+      });
   };
 
   const collateSentiments = (tweetArray) => {
@@ -89,12 +93,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header handleSubmit={handleSubmit} username={username} setUsername={setUsername} loading={loading} />
+      <Header
+        handleSubmit={handleSubmit}
+        username={username}
+        setUsername={setUsername}
+        loading={loading}
+        error={fetchError}
+      />
       {tweets &&
         <UserWrapper loaded={dataLoaded}>
           <Overview user={userData.handle} name={userData.name} avatar={userData.avatar} followCount={userData.followers} friendCount={userData.following} bio={userData.bio} />
           <TwoColRow>
-            <SentimentDoughnut tweetArray={ data } />
+            <SentimentDoughnut tweetArray={data} />
             {/* <PosNegTweets /> */}
           </TwoColRow>
           <TwoColRow>
@@ -102,11 +112,11 @@ function App() {
             <MostNegativeTweet tweet={tweets.stats.mostNegativeTweet} />
           </TwoColRow>
           <TwoColRow>
-            <MostLikedTweet tweet={ tweets.stats.mostLikedTweet } />
-            <MostRetweetedTweet tweet={ tweets.stats.mostRetweetedTweet }/>
+            <MostLikedTweet tweet={tweets.stats.mostLikedTweet} />
+            <MostRetweetedTweet tweet={tweets.stats.mostRetweetedTweet} />
           </TwoColRow>
           <OneColRow>
-            <MostUsedWords words={ tweets.stats.mostUsedWords } />
+            <MostUsedWords words={tweets.stats.mostUsedWords} />
           </OneColRow>
         </UserWrapper>
       }
