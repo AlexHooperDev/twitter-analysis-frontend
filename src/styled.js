@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.main`
   display: flex;
-  opacity: ${props => (props.mounted ? "1" : "0")};
-  transform: translate3d(0, ${props => (props.mounted ? "0px" : "-50px")}, 0);
+  opacity: ${(props) => (props.mounted ? '1' : '0')};
+  transform: translate3d(0, ${(props) => (props.mounted ? '0px' : '-50px')}, 0);
   transition: all 0.4s;
   flex-flow: column;
   padding: 45px 40px;
   border-top: 3px solid #289bb1;
   width: 90%;
+  max-width: 1200px;
   margin: 50px auto 0;
   background: #2d396552;
   border-radius: 5px;
@@ -27,12 +28,18 @@ export const Wrapper = styled.main`
 
 export const TwoColRow = styled.section`
   display: flex;
-  padding: 30px 0;
+  padding: 40px 0;
   border-bottom: 1px solid #475179;
   justify-content: space-between;
 
   @media (max-width: 768px) {
     flex-flow: column;
+
+    & > div:first-child {
+      padding-bottom: 60px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #475179;
+    }
   }
 `;
 

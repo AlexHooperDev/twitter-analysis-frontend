@@ -13,11 +13,12 @@ export const NegativeIcon = styled.img`
 `;
 
 export const Percentage = styled.p`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 34px;
   line-height: 25px;
   margin: 10px 0 0 0;
   color: #ff397f;
+  margin-top: 20px;
 `;
 
 export const Copy = styled.p`

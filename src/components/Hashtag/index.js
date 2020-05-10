@@ -1,13 +1,17 @@
-import React from "react";
-import { Wrapper, PositiveIcon, Percentage, Copy } from "./styled";
+import React from 'react';
+import {
+  Wrapper, PositiveIcon, Percentage, Copy,
+} from './styled';
 
-import hashtag from "../../assets/hashtag.svg";
+import hashtag from '../../assets/hashtag.svg';
 
-export const Hashtag = ({ count }) => {
-  return (
-    <Wrapper>
-      <PositiveIcon src={hashtag} />
-      <Percentage>{count} times</Percentage>
-    </Wrapper>
-  );
-};
+export const Hashtag = ({ count }) => (
+  <Wrapper>
+    <PositiveIcon src={hashtag} />
+    <Percentage>
+      {count}
+      {' '}
+      times
+    </Percentage>
+  </Wrapper>
+);

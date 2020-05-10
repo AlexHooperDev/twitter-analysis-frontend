@@ -9,36 +9,35 @@ export const Form = styled.form`
   align-items: stretch;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow:
-  0 0.5px 1.2px rgba(0, 0, 0, 0.02),
-  0 1.3px 2.9px rgba(0, 0, 0, 0.028),
-  0 2.4px 5.5px rgba(0, 0, 0, 0.035),
-  0 4.2px 9.8px rgba(0, 0, 0, 0.042),
-  0 7.9px 18.4px rgba(0, 0, 0, 0.05),
-  0 19px 44px rgba(0, 0, 0, 0.07)
-;
+  box-shadow: 0 0.5px 1.2px rgba(0, 0, 0, 0.02),
+    0 1.3px 2.9px rgba(0, 0, 0, 0.028), 0 2.4px 5.5px rgba(0, 0, 0, 0.035),
+    0 4.2px 9.8px rgba(0, 0, 0, 0.042), 0 7.9px 18.4px rgba(0, 0, 0, 0.05),
+    0 19px 44px rgba(0, 0, 0, 0.07);
 `;
 
 export const Input = styled.input`
-border: none;
-background: #778EDB;
-font-size: 16px;
-font-weight: 500;
-color: #f7f7f7;
-padding: 9px 16px;
-width: 80%;
+  border: none;
+  background: #778edb;
+  font-size: 16px;
+  font-weight: 500;
+  color: #f7f7f7;
+  margin: 0;
+  padding: 9px 16px;
+  width: 80%;
+  border-radius: 0;
 
   @media (max-width: 768px) {
     width: 60%;
+    padding: 9px;
   }
-
 `;
 
 export const Button = styled.button`
   width: 15%;
-  background: #4A5DB3;
+  background: #4a5db3;
   color: #f7f7f7;
   border: none;
+  margin: 0;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -49,11 +48,14 @@ export const Button = styled.button`
     width: 30%;
   }
 
+  @media (max-width: 350px) {
+    font-size: 12px;
+  }
 `;
 
 export const At = styled.span`
   width: 5%;
-  background: #289BB1;
+  background: #289bb1;
   padding: 10px 0;
   font-weight: 900;
   color: #f7f7f7;
@@ -62,6 +64,9 @@ export const At = styled.span`
     width: 10%;
   }
 
+  @media (max-width: 350px) {
+    font-size: 12px;
+  }
 `;
 
 export const FormError = styled.div`
@@ -75,4 +80,8 @@ export const FormError = styled.div`
   margin-top: -5px;
   border-radius: 4px;
   font-weight: 500;
+
+  @media (max-width: 350px) {
+    font-size: 12px;
+  }
 `;

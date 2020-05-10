@@ -1,7 +1,5 @@
 import React from 'react';
 
-export const PosNegTweets = () => {
-  return (
-    <div>Pos Neg Tweets go here</div>
-  );
-};
+export const PosNegTweets = () => (
+  <div>Pos Neg Tweets go here</div>
+);

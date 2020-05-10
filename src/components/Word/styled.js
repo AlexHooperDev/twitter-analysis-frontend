@@ -7,6 +7,12 @@ export const Wrapper = styled.p`
   color: #f7f7f7;
   font-size: 14px;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    padding: 7px 11px;
+    margin: 6px;
+    font-size: 12px;
+  }
 `;
 
 export const WordSpan = styled.span`

@@ -1,0 +1,3 @@
+dispatch:
+  - url: 'twitter-analysis.hooper.dev'
+    service: fe

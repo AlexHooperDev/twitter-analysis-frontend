@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const Copy = styled.p`
+export const Copy = styled.a`
   padding: 8px 15px 8px 0;
   margin: 8px 8px;
   background: #41529e;
@@ -19,6 +19,14 @@ export const Copy = styled.p`
   border-radius: 5px;
   flex-basis: unset;
   overflow: hidden;
+  text-decoration: none;
+
+  &:hover {
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 export const Hash = styled.span`
@@ -35,4 +43,21 @@ export const Count = styled.span`
   font-weight: 300;
   color: #7ddcefa6;
   margin-left: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+export const Button = styled.button`
+  background: #404b71;
+  color: #f7f7f7;
+  font-size: 12px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 14px;
+  border: 1px solid #289bb1;
 `;

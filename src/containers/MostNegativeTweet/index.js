@@ -1,15 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { Wrapper, Tweet } from "./styled";
-import { Title } from "../../components/Title";
-import { Negative } from "../../components/Negative";
+import { Wrapper, Tweet } from './styled';
+import { Title } from '../../components/Title';
+import { Negative } from '../../components/Negative';
 
-export const MostNegativeTweet = ({ tweet }) => {
-  return (
-    <Wrapper>
-      <Title copy="Most Negative Tweet" />
-      <Negative percentage={tweet.sentimentScore.Negative.toFixed(2) * 100} />
-      <Tweet>{tweet.tweet}</Tweet>
-    </Wrapper>
-  );
-};
+export const MostNegativeTweet = ({ tweet, user }) => (
+  <Wrapper>
+    <Title copy='Most Negative Tweet' />
+    <Negative percentage={tweet.sentiment.score} />
+    <Tweet
+      href={`https://twitter.com/${user}/status/${tweet.id}`}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      {tweet.tweet}
+    </Tweet>
+  </Wrapper>
+);

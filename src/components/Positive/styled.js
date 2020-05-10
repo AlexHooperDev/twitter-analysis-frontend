@@ -9,15 +9,16 @@ export const Wrapper = styled.div`
 `;
 
 export const PositiveIcon = styled.img`
-  max-width: 100%
+  max-width: 100%;
 `;
 
 export const Percentage = styled.p`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 34px;
   line-height: 25px;
   margin: 10px 0 0 0;
   color: #33c6e2;
+  margin-top: 20px;
 `;
 
 export const Copy = styled.p`

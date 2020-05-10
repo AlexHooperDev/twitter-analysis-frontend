@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 const themeHandler = (props) => {
-  switch(props.sentiment) {
-    case "POSITIVE":
+  switch (props.sentiment) {
+    case 'POSITIVE':
       return 'green';
-    case "NEUTRAL":
+    case 'NEUTRAL':
       return 'grey';
-    case "NEGATIVE":
+    case 'NEGATIVE':
       return 'red';
   }
 };
 
 export const UserTweetWrapper = styled.div`
-  background: ${props => themeHandler(props)};
+  background: ${(props) => themeHandler(props)};
 `;
 
 export const TweetCopy = styled.p`
